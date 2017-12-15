@@ -1,0 +1,1105 @@
+{
+  "settings": {
+    "name": "Maurits Mulders",
+    "currentPage": "Main.html",
+    "versionFirst": "4.0.14",
+    "uniqCompNum": 40,
+    "versionPublish": "4.5.2",
+    "theme": {
+      "additionalSetColors": [
+        "#222222"
+      ]
+    },
+    "robotsText": "User-agent: *\r\nDisallow: /cgi-bin\r\n",
+    "robotsSwitcher": "",
+    "siteUrl": "",
+    "sitemapSwitcherAuto": "on",
+    "favicon": "",
+    "noImageResize": "",
+    "cookiesAlert": "",
+    "google-analytics": ""
+  },
+  "pages": {
+    "Main.html": {
+      "settings": {
+        "main": true,
+        "title": "Maurits Mulders",
+        "meta_descr": "Main Page",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "_inherit": "header1",
+          "_params": {
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
+            "showArrow": false,
+            "contentAlign": "center",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/mbr-1620x1080.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#4c6972",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "title": "Maurits Mulders",
+          "text": "",
+          "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">FOR WINDOWS</a> ",
+          "_tags": [
+            "Theme"
+          ],
+          "_afterNavbarItem": ".mbr-section > .mbr-box__magnet",
+          "_name": "header4",
+          "_anchor": "header4-l"
+        },
+        {
+          "_name": "menu1",
+          "_customHTML": "<section class=\"menu\" group=\"Menu\" plugins=\"DropDown, TouchSwipe\" always-top=\"\" global=\"\" once=\"menu\" not-draggable=\"\" position-absolute=\"\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked=\"\">\n        <input type=\"range\" title=\"Logo Size\" inline=\"\" name=\"logoSize\" min=\"3.8\" max=\"8\" step=\"0.1\" value=\"3.8\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Brand Name\" name=\"showBrand\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Menu Items\" name=\"showItems\" checked=\"\">\n        <input type=\"color\" title=\"Items Hover Color\" name=\"itemsHoverColor\" value=\"#c1c1c1\" condition=\"showItems\">\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\" checked=\"\">\n        <input type=\"checkbox\" title=\"Sticky\" name=\"sticky\" checked=\"\">\n        <input type=\"checkbox\" title=\"Collapsed\" name=\"collapsed\">\n        <input type=\"checkbox\" title=\"Transparent\" name=\"transparent\">\n        <input type=\"color\" title=\"Hamburger Color\" name=\"hamburgerColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Background Color\" name=\"menuBgColor\" value=\"#333333\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <nav class=\"navbar navbar-expand beta-menu navbar-dropdown align-items-center\" mbr-class=\"{'navbar-fixed-top': sticky,\n        'navbar-toggleable-sm': !collapsed,\n        'collapsed': collapsed,\n        'bg-color transparent': transparent}\">\n        <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <div class=\"hamburger\">\n                <span></span>\n                <span></span>\n                <span></span>\n                <span></span>\n            </div>\n        </button>\n        <div class=\"menu-logo\">\n            <div class=\"navbar-brand\">\n                <span mbr-if=\"showLogo\" class=\"navbar-logo\">\n                    <a href=\"https://mobirise.com\">\n                         <img src=\"../_images/logo2.png\" alt=\"Mobirise\" mbr-style=\"{'height': logoSize + 'rem'}\">\n                    </a>\n                </span>\n                <span mbr-if=\"showBrand\" mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"navbar-caption-wrap\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove\">\n                    <a class=\"navbar-caption text-white\" data-app-selector=\".navbar-caption\" href=\"https://mobirise.com\">MOBIRISE</a>\n                </span>\n            </div>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul mbr-if=\"showItems\" mbr-menu=\"\" class=\"navbar-nav nav-dropdown\" mbr-theme-style=\"display-4\" mbr-class=\"{'nav-right': !showButtons,'navbar-nav-top-padding': isPublish &amp;&amp; !showBrand &amp;&amp; !showLogo}\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link link text-white\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">\n                        <span class=\"mbri-home mbr-iconfont mbr-iconfont-btn\"></span>Services</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link link text-white\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">\n                        <span class=\"mbri-search mbr-iconfont mbr-iconfont-btn\"></span>About Us</a>\n                </li>\n            </ul>\n            <div mbr-if=\"showButtons\" mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"navbar-buttons mbr-section-btn\">\n                <a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.com\">\n                    <span class=\"mbri-save mbr-iconfont mbr-iconfont-btn \" data-app-selector=\".mbr-iconfont-btn\"></span>Try It Now!</a>\n            </div>\n        </div>\n    </nav>\n</section>\n",
+          "_styles": {
+            ".navbar": {
+              "padding": ".5rem 0",
+              "background": "@menuBgColor",
+              "transition": "none",
+              "min-height": "77px"
+            },
+            ".navbar-dropdown.bg-color.transparent.opened": {
+              "background": "@menuBgColor"
+            },
+            "a": {
+              "font-style": "normal"
+            },
+            ".nav-item": {
+              "& span": {
+                "padding-right": "0.4em",
+                "line-height": "0.5em",
+                "vertical-align": "text-bottom",
+                "position": "relative",
+                "text-decoration": "none"
+              },
+              "& a": {
+                "display": "flex",
+                "align-items": "center",
+                "justify-content": "center",
+                "padding": "0.7rem 0 !important",
+                "margin": "0rem .65rem !important"
+              }
+            },
+            ".nav-item:focus, .nav-link:focus": {
+              "outline": "none"
+            },
+            ".btn": {
+              "padding": "0.4rem 1.5rem",
+              ".mbr-iconfont": {
+                "font-size": "1.6rem"
+              },
+              "display": "inline-flex",
+              "align-items": "center"
+            },
+            ".menu-logo": {
+              "margin-right": "auto",
+              ".navbar-brand": {
+                "display": "flex",
+                "margin-left": "5rem",
+                "padding": "0",
+                "transition": "padding .2s",
+                "min-height": "3.8rem",
+                "align-items": "center",
+                ".navbar-caption-wrap": {
+                  "display": "-webkit-flex",
+                  "-webkit-align-items": "center",
+                  "align-items": "center",
+                  "word-break": "break-word",
+                  "min-width": "7rem",
+                  "margin": ".3rem 0",
+                  ".navbar-caption": {
+                    "line-height": "1.2rem !important",
+                    "padding-right": "2rem"
+                  }
+                },
+                ".navbar-logo": {
+                  "font-size": "4rem",
+                  "transition": "font-size 0.25s",
+                  "& img": {
+                    "display": "flex"
+                  },
+                  ".mbr-iconfont": {
+                    "transition": "font-size 0.25s"
+                  }
+                }
+              }
+            },
+            ".navbar-toggleable-sm .navbar-collapse": {
+              "justify-content": "flex-end",
+              "-webkit-justify-content": "flex-end",
+              "padding-right": "5rem",
+              "width": "auto",
+              ".navbar-nav": {
+                "flex-wrap": "wrap",
+                "-webkit-flex-wrap": "wrap",
+                "padding-left": "0",
+                ".nav-item": {
+                  "-webkit-align-self": "center",
+                  "align-self": "center"
+                }
+              },
+              ".navbar-buttons": {
+                "padding-left": "0",
+                "padding-bottom": "0"
+              }
+            },
+            ".dropdown": {
+              ".dropdown-menu": {
+                "background": "@menuBgColor",
+                "display": "none",
+                "position": "absolute",
+                "min-width": "5rem",
+                "padding-top": "1.4rem",
+                "padding-bottom": "1.4rem",
+                "text-align": "left",
+                ".dropdown-item": {
+                  "width": "auto",
+                  "padding": "0.235em 1.5385em 0.235em 1.5385em !important",
+                  "&::after": {
+                    "right": "0.5rem"
+                  }
+                },
+                ".dropdown-submenu": {
+                  "margin": "0"
+                }
+              },
+              "&.open > .dropdown-menu": {
+                "display": "block"
+              }
+            },
+            ".navbar-toggleable-sm": {
+              "&.opened:after": {
+                "position": "absolute",
+                "width": "100vw",
+                "height": "100vh",
+                "content": "''",
+                "background-color": "rgba(0, 0, 0, 0.1)",
+                "left": "0",
+                "bottom": "0",
+                "transform": "translateY(100%)",
+                "-webkit-transform": "translateY(100%)",
+                "z-index": "1000"
+              }
+            },
+            ".navbar.navbar-short": {
+              "min-height": "60px",
+              "transition": "all .2s",
+              "& .navbar-toggler-right": {
+                "top": "20px"
+              },
+              "& .navbar-logo a": {
+                "font-size": "2.5rem !important",
+                "line-height": "2.5rem",
+                "transition": "font-size 0.25s",
+                "& .mbr-iconfont": {
+                  "font-size": "2.5rem !important"
+                },
+                "& img": {
+                  "height": "3rem !important"
+                }
+              },
+              "& .navbar-brand": {
+                "min-height": "3rem"
+              }
+            },
+            "button.navbar-toggler": {
+              "width": "31px",
+              "height": "18px",
+              "cursor": "pointer",
+              "transition": "all .2s",
+              "top": "1.5rem",
+              "right": "1rem",
+              "&:focus": {
+                "outline": "none"
+              },
+              ".hamburger span": {
+                "position": "absolute",
+                "right": "0",
+                "width": "30px",
+                "height": "2px",
+                "border-right": "5px",
+                "background-color": "@hamburgerColor",
+                "&:nth-child(1)": {
+                  "top": "0",
+                  "transition": "all .2s"
+                },
+                "&:nth-child(2)": {
+                  "top": "8px",
+                  "transition": "all .15s"
+                },
+                "&:nth-child(3)": {
+                  "top": "8px",
+                  "transition": "all .15s"
+                },
+                "&:nth-child(4)": {
+                  "top": "16px",
+                  "transition": "all .2s"
+                }
+              }
+            },
+            "nav.opened .hamburger span": {
+              "&:nth-child(1)": {
+                "top": "8px",
+                "width": "0",
+                "opacity": "0",
+                "right": "50%",
+                "transition": "all .2s"
+              },
+              "&:nth-child(2)": {
+                "-webkit-transform": "rotate(45deg)",
+                "transform": "rotate(45deg)",
+                "transition": "all .25s"
+              },
+              "&:nth-child(3)": {
+                "-webkit-transform": "rotate(-45deg)",
+                "transform": "rotate(-45deg)",
+                "transition": "all .25s"
+              },
+              "&:nth-child(4)": {
+                "top": "8px",
+                "width": "0",
+                "opacity": "0",
+                "right": "50%",
+                "transition": "all .2s"
+              }
+            },
+            ".collapsed": {
+              "&.navbar-expand": {
+                "flex-direction": "column"
+              },
+              ".btn": {
+                "display": "flex"
+              },
+              ".navbar-collapse": {
+                "display": "none !important",
+                "padding-right": "0 !important",
+                "&.collapsing,&.show": {
+                  "display": "block !important",
+                  ".navbar-nav": {
+                    "display": "block",
+                    "text-align": "center",
+                    ".nav-item": {
+                      "clear": "both",
+                      "& when (@showButtons = false)": {
+                        "&:last-child": {
+                          "margin-bottom": "1rem"
+                        }
+                      }
+                    }
+                  },
+                  ".navbar-buttons": {
+                    "text-align": "center",
+                    "&:last-child": {
+                      "margin-bottom": "1rem"
+                    }
+                  }
+                }
+              },
+              "button.navbar-toggler": {
+                "display": "block"
+              },
+              ".navbar-brand": {
+                "margin-left": "1rem !important"
+              },
+              ".navbar-toggleable-sm": {
+                "flex-direction": "column",
+                "-webkit-flex-direction": "column"
+              },
+              ".dropdown": {
+                ".dropdown-menu": {
+                  "width": "100%",
+                  "text-align": "center",
+                  "position": "relative",
+                  "opacity": "0",
+                  "display": "block",
+                  "height": "0",
+                  "visibility": "hidden",
+                  "padding": "0",
+                  "transition-duration": ".5s",
+                  "transition-property": "opacity,padding,height"
+                },
+                "&.open > .dropdown-menu": {
+                  "position": "relative",
+                  "opacity": "1",
+                  "height": "auto",
+                  "padding": "1.4rem 0",
+                  "visibility": "visible"
+                },
+                ".dropdown-submenu": {
+                  "left": "0",
+                  "text-align": "center",
+                  "width": "100%"
+                },
+                ".dropdown-toggle[data-toggle=\"dropdown-submenu\"]::after": {
+                  "margin-top": "0",
+                  "position": "inherit",
+                  "right": "0",
+                  "top": "50%",
+                  "display": "inline-block",
+                  "width": "0",
+                  "height": "0",
+                  "margin-left": ".3em",
+                  "vertical-align": "middle",
+                  "content": "\"\"",
+                  "border-top": ".30em solid",
+                  "border-right": ".30em solid transparent",
+                  "border-left": ".30em solid transparent"
+                }
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".navbar-expand": {
+                "flex-direction": "column"
+              },
+              "img": {
+                "height": "3.8rem !important"
+              },
+              ".btn": {
+                "display": "flex"
+              },
+              "button.navbar-toggler": {
+                "display": "block"
+              },
+              ".navbar-brand": {
+                "margin-left": "1rem !important"
+              },
+              ".navbar-toggleable-sm": {
+                "flex-direction": "column",
+                "-webkit-flex-direction": "column"
+              },
+              ".navbar-collapse": {
+                "display": "none !important",
+                "padding-right": "0 !important",
+                "&.collapsing,&.show": {
+                  "display": "block !important",
+                  ".navbar-nav": {
+                    "display": "block",
+                    "text-align": "center",
+                    ".nav-item": {
+                      "clear": "both",
+                      "& when (@showButtons = false)": {
+                        "&:last-child": {
+                          "margin-bottom": "1rem"
+                        }
+                      }
+                    }
+                  },
+                  ".navbar-buttons": {
+                    "text-align": "center",
+                    "&:last-child": {
+                      "margin-bottom": "1rem"
+                    }
+                  }
+                }
+              },
+              ".dropdown": {
+                ".dropdown-menu": {
+                  "width": "100%",
+                  "text-align": "center",
+                  "position": "relative",
+                  "opacity": "0",
+                  "display": "block",
+                  "height": "0",
+                  "visibility": "hidden",
+                  "padding": "0",
+                  "transition-duration": ".5s",
+                  "transition-property": "opacity,padding,height"
+                },
+                "&.open > .dropdown-menu": {
+                  "position": "relative",
+                  "opacity": "1",
+                  "height": "auto",
+                  "padding": "1.4rem 0",
+                  "visibility": "visible"
+                },
+                ".dropdown-submenu": {
+                  "left": "0",
+                  "text-align": "center",
+                  "width": "100%"
+                },
+                ".dropdown-toggle[data-toggle=\"dropdown-submenu\"]::after": {
+                  "margin-top": "0",
+                  "position": "inherit",
+                  "right": "0",
+                  "top": "50%",
+                  "display": "inline-block",
+                  "width": "0",
+                  "height": "0",
+                  "margin-left": ".3em",
+                  "vertical-align": "middle",
+                  "content": "\"\"",
+                  "border-top": ".30em solid",
+                  "border-right": ".30em solid transparent",
+                  "border-left": ".30em solid transparent"
+                }
+              }
+            },
+            "@media (min-width: 767px)": {
+              ".menu-logo": {
+                "flex-shrink": "0"
+              }
+            },
+            ".navbar-collapse": {
+              "flex-basis": "auto"
+            },
+            ".nav-link:hover, .dropdown-item:hover": {
+              "color": "@itemsHoverColor !important"
+            },
+            "P": {
+              "color": "#1abc9c"
+            },
+            "undefined": {
+              "text-align": "right",
+              "color": "#c1c1c1"
+            }
+          },
+          "_cid": "qDSWWMPM15",
+          "_protectedParams": [],
+          "_params": {},
+          "_anchor": "menu1-e"
+        },
+        {
+          "_params": {
+            "showHeader": true,
+            "showSubheader": true,
+            "showImages": true,
+            "showTitles": true,
+            "showCaptions": true,
+            "showButtons": true,
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "columns": "5",
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#fff",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "headerAlign": "left",
+          "header": "Mijn CV",
+          "subheader": "Maurits Mulders 25-12-2017",
+          "media1": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/mbr-2-1200x800.jpg",
+              "class": "mbr-figure__img",
+              "width": 600,
+              "link": "",
+              "alt": "",
+              "title": ""
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-features1",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title1": "Studie",
+          "caption1": "Vanaf 2012 in delft gestudeerd en mezelf verbreed&nbsp;<br>bla<br>bla&nbsp;<br>bla",
+          "button1": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-s\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
+          "media2": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/mbr-2-1080x1080.jpg",
+              "class": "mbr-figure__img",
+              "width": 600,
+              "link": "",
+              "alt": "",
+              "title": ""
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-features1",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title2": "Bedrijfsleider",
+          "caption2": "Bedrijfsleider<br>bla&nbsp;<br>bla<br>bla<br>bla<br>bla",
+          "button2": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-t\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
+          "media3": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/mbr-1-1200x798.jpg",
+              "class": "mbr-figure__img",
+              "width": 600,
+              "link": "",
+              "alt": "",
+              "title": ""
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-features1",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title3": "Zeilinstructeur",
+          "caption3": "Bla<br>Bla<br>Bla<br>BLa<br>BLa<br>bla",
+          "button3": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-u\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
+          "media4": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/mbr-1-1200x900.jpg",
+              "class": "mbr-figure__img",
+              "width": 600,
+              "link": "",
+              "alt": "",
+              "title": ""
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-features1",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title4": "Lyceo",
+          "caption4": "Bla<br>Bla<br>Bla<br>Bla<br>Bla<br>bla",
+          "button4": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
+          "media5": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/dsc-9240-600x903.jpg",
+              "class": "mbr-figure__img",
+              "width": 600,
+              "link": "",
+              "alt": "",
+              "title": ""
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-features1",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title5": "PERSOONLIJK",
+          "caption5": "Praktische informatie over mezelf.<br>bla<br>bla<br>bla<br><br>",
+          "button5": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
+          "media6": {
+            "image": {
+              "active": true,
+              "src": "images/host.png",
+              "class": "mbr-figure__img",
+              "width": 600
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-features1",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title6": "HOST ANYWHERE",
+          "caption6": "Publish your website to a local drive, FTP or host on Amazon S3, Google Drive, Github. Don't limit yourself to just one platform or service provider.",
+          "button6": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\">LEARN MORE</a>",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "features1",
+          "_anchor": "features1-11"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_params": {
+            "showTitle": true,
+            "showMeta": true,
+            "showText": true,
+            "showButtons": true,
+            "inverse": false,
+            "imageSize": 50,
+            "paddingTop": "4",
+            "paddingBottom": "4",
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#ffffff",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "media": {
+            "image": {
+              "active": true,
+              "class": "mbr-figure__img",
+              "width": 1400,
+              "src": "@PROJECT_PATH@/assets/images/tu-delft-logo-rgb-373x230.png",
+              "link": "",
+              "alt": "",
+              "title": ""
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-msg-box4",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title": "STUDIE",
+          "text": "<p>2017 - Heden Msc Cyber Security</p><p>2016 - 2017 Pre Master Informatica</p><p>2012 &nbsp;- 2017 Bsc Werktuigbouwkunde TU DELFT Bachelor eind scriptie: Redesign optics of biosparQ</p><p>2006 - 2012 VWO Natuur &amp; Techniek</p><p><br></p>",
+          "_tags": [
+            "Theme"
+          ],
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#ffffff",
+              "text-align": "center",
+              "font-size": "16px"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            },
+            ".mbr-article P": {
+              "color": "#b8312f"
+            }
+          },
+          "headerAlign": "center",
+          "meta": "2012 - Heden",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-info\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
+          "_name": "msg-box4",
+          "_anchor": "msg-box4-s"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_params": {
+            "showTitle": true,
+            "showMeta": true,
+            "showText": true,
+            "showButtons": true,
+            "inverse": true,
+            "imageSize": "29",
+            "paddingTop": "4",
+            "paddingBottom": "4",
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#cccccc",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "media": {
+            "image": {
+              "active": true,
+              "class": "mbr-figure__img",
+              "width": 1400,
+              "src": "images/iphone.png"
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-msg-box4",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title": "BEDRIJFSLEIDER",
+          "text": "<p>Make your own website in a few clicks! Mobirise helps you cut down development time by providing you with a flexible website editor with a drag and drop interface.</p>",
+          "_tags": [
+            "Theme"
+          ],
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#ffffff"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            }
+          },
+          "headerAlign": "left",
+          "meta": "By John Smith posted July 30, 2015",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-info\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
+          "_name": "msg-box4",
+          "_anchor": "msg-box4-t"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_params": {
+            "showTitle": true,
+            "showMeta": true,
+            "showText": true,
+            "showButtons": true,
+            "inverse": false,
+            "imageSize": 50,
+            "paddingTop": "4",
+            "paddingBottom": "4",
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#f97352",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "media": {
+            "image": {
+              "active": true,
+              "class": "mbr-figure__img",
+              "width": 1400,
+              "src": "images/iphone.png"
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-msg-box4",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title": "ZEILINSTRUCTEUR",
+          "text": "<p>Make your own website in a few clicks! Mobirise helps you cut down development time by providing you with a flexible website editor with a drag and drop interface.</p>",
+          "_tags": [
+            "Theme"
+          ],
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#ffffff"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            }
+          },
+          "headerAlign": "left",
+          "meta": "By John Smith posted July 30, 2015",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-info\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
+          "_name": "msg-box4",
+          "_anchor": "msg-box4-u"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": true,
+            "inverse": true,
+            "imageSize": 50,
+            "paddingTop": "4",
+            "paddingBottom": "4",
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#27aae0",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "media": {
+            "image": {
+              "active": true,
+              "class": "mbr-figure__img",
+              "width": 1400,
+              "src": "images/iphone.png"
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-msg-box4",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title": "LYCEO",
+          "text": "<p>Make your own website in a few clicks! Mobirise helps you cut down development time by providing you with a flexible website editor with a drag and drop interface.</p>",
+          "_tags": [
+            "Theme"
+          ],
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#ffffff"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            }
+          },
+          "headerAlign": "left",
+          "meta": "By John Smith posted July 30, 2015",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
+          "_name": "msg-box4",
+          "_anchor": "msg-box4-12"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": true,
+            "inverse": false,
+            "imageSize": 50,
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#f97352",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "media": {
+            "image": {
+              "active": true,
+              "class": "mbr-figure__img",
+              "width": 1400,
+              "src": "images/iphone.png"
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-msg-box4",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title": "PERSOONLIJK",
+          "text": "<p>BLAAAA</p>",
+          "_tags": [
+            "Theme"
+          ],
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#ffffff"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            }
+          },
+          "headerAlign": "left",
+          "meta": "By John Smith posted July 30, 2015",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
+          "_name": "msg-box4",
+          "_anchor": "msg-box4-13"
+        },
+        {
+          "_params": {
+            "googleMap": {
+              "address": "Van den Hoonaardstraat 22c, Rotterdam, netherlands",
+              "placeId": "ChIJd1t3PKs0xEcRbj99l2i3F78",
+              "state": "ok",
+              "stateDetails": ""
+            }
+          },
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "map1",
+          "_anchor": "map1-w"
+        },
+        {
+          "_params": {
+            "paddingTop": "4",
+            "paddingBottom": "4",
+            "bgImageRadio": true,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f0f0f0",
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
+          },
+          "text": "More Information",
+          "icons": " <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-facebook\" title=\"Facebook\" target=\"_blank\" href=\"https://www.facebook.com/Mauritstjeee\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-facebook\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-googleplus\" title=\"Google+\" target=\"_blank\" href=\"https://plus.google.com/u/0/+Mobirise/posts\"><i class=\"socicon socicon-googleplus\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-youtube\" title=\"YouTube\" target=\"_blank\" href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\"><i class=\"socicon socicon-youtube\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-instagram\" title=\"Instagram\" target=\"_blank\" href=\"https://instagram.com/mobirise/\"><i class=\"socicon socicon-instagram\"></i></a>  <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-github\" title=\"GitHub\" target=\"_blank\" href=\"https://github.com/Mobirise\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-github\"></i></a>   <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-linkedin\" title=\"LinkedIn\" target=\"_blank\" href=\"https://www.linkedin.com/in/mobirise\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-linkedin\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-android\" title=\"Google Play\" target=\"_blank\" href=\"https://play.google.com/store/apps/details?id=com.mobirise.mobirise\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-android\"></i></a>",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "social-buttons2",
+          "_anchor": "social-buttons2-n"
+        },
+        {
+          "_name": "footer1",
+          "_customHTML": "<section group=\"Footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->  \n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"checkbox\" title=\"Show Copyright\" name=\"showCopyright\" checked=\"\">\n        <select title=\"Icons\" name=\"iconsCount\">\n            <option value=\"0\">0</option>\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n            <option value=\"5\">5</option>\n            <option value=\"6\" selected=\"\">6</option>\n        </select>\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/jumbotron.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#2e2e2e\" selected=\"\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#3C3C3C\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n        <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row content text-white\">\n            <div class=\"col-12 col-md-3\">\n                <div class=\"media-wrap\">\n                    <a href=\"https://mobirise.com/\">\n                        <img src=\"../_images/logo2.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n            </div>\n            <div class=\"col-12 col-md-3 mbr-fonts-style\" mbr-theme-style=\"display-7\">\n                <h5 class=\"pb-3\">Address</h5>\n                <p class=\"mbr-text\">1234 Street Name<br>City, AA 99999</p>\n            </div>\n            <div class=\"col-12 col-md-3 mbr-fonts-style\" mbr-theme-style=\"display-7\">\n                <h5 class=\"pb-3\">Contacts</h5>\n                <p class=\"mbr-text\">Email: support@mobirise.com<br>Phone: +1 (0) 000 0000 001<br>Fax: +1 (0) 000 0000 002</p>\n            </div>\n            <div class=\"col-12 col-md-3 mbr-fonts-style\" mbr-theme-style=\"display-7\">\n                <h5 class=\"pb-3\">Links</h5>\n                <p class=\"mbr-text\">\n                    <a class=\"text-primary\" href=\"https://mobirise.com/\">Website builder</a>\n                    <br><a class=\"text-primary\" href=\"https://mobirise.com/mobirise-free-win.zip\">Download for Windows</a>\n                    <br><a class=\"text-primary\" href=\"https://mobirise.com/mobirise-free-mac.zip\">Download for Mac</a>\n                </p>\n            </div>\n        </div>\n        <div class=\"footer-lower\" mbr-if=\"showCopyright\">\n            <div class=\"media-container-row\">\n                <div class=\"col-sm-12\">\n                    <hr>\n                </div>\n            </div>\n            <div class=\"media-container-row mbr-white\">\n                <div class=\"col-sm-6 copyright\">\n                    <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".copyright > p\">© Copyright 2017 Mobirise - All Rights Reserved</p>\n                </div>\n                <div class=\"col-md-6\">\n                    <div class=\"social-list align-right\" mbr-if=\"iconsCount > 0\">\n                        <div class=\"soc-item\" mbr-if=\"iconsCount>0\">\n                            <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                <span mbr-icon=\"\" class=\"socicon-twitter socicon mbr-iconfont mbr-iconfont-social\"></span>\n                            </a>\n                        </div>\n                        <div class=\"soc-item\" mbr-if=\"iconsCount>1\">\n                            <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                <span mbr-icon=\"\" class=\"socicon-facebook socicon mbr-iconfont mbr-iconfont-social\"></span>\n                            </a>\n                        </div>\n                        <div class=\"soc-item\" mbr-if=\"iconsCount>2\">\n                            <a href=\"https://www.youtube.com/c/mobirise\" target=\"_blank\">\n                                <span mbr-icon=\"\" class=\"socicon-youtube socicon mbr-iconfont mbr-iconfont-social\"></span>\n                            </a>\n                        </div>\n                        <div class=\"soc-item\" mbr-if=\"iconsCount>3\">\n                            <a href=\"https://instagram.com/mobirise\" target=\"_blank\">\n                                <span mbr-icon=\"\" class=\"socicon-instagram socicon mbr-iconfont mbr-iconfont-social\"></span>\n                            </a>\n                        </div>\n                        <div class=\"soc-item\" mbr-if=\"iconsCount>4\">\n                            <a href=\"https://plus.google.com/u/0/+Mobirise\" target=\"_blank\">\n                                <span mbr-icon=\"\" class=\"socicon-googleplus socicon mbr-iconfont mbr-iconfont-social\"></span>\n                            </a>\n                        </div>\n                        <div class=\"soc-item\" mbr-if=\"iconsCount>5\">\n                            <a href=\"https://www.behance.net/Mobirise\" target=\"_blank\">\n                                <span mbr-icon=\"\" class=\"socicon-behance socicon mbr-iconfont mbr-iconfont-social\"></span>\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>\n",
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".content": {
+              "@media (max-width: 767px)": {
+                "text-align": "center",
+                "> div:not(:last-child)": {
+                  "margin-bottom": "2rem"
+                }
+              }
+            },
+            ".media-wrap": {
+              "@media (max-width: 767px)": {
+                "margin-bottom": "1rem"
+              },
+              ".mbr-iconfont-logo": {
+                "font-size": "7.5rem",
+                "color": "#f36"
+              },
+              "img": {
+                "height": "6rem"
+              }
+            },
+            ".footer-lower": {
+              ".copyright": {
+                "@media (max-width: 767px)": {
+                  "margin-bottom": "1rem",
+                  "text-align": "center"
+                }
+              },
+              "hr": {
+                "margin": "1rem 0",
+                "border-color": "#fff",
+                "opacity": ".05"
+              },
+              ".social-list": {
+                "padding-left": "0",
+                "margin-bottom": "0",
+                "list-style": "none",
+                "display": "flex",
+                "flex-wrap": "wrap",
+                "justify-content": "flex-end",
+                "-webkit-justify-content": "flex-end",
+                ".mbr-iconfont-social": {
+                  "font-size": "1.3rem",
+                  "color": "#fff"
+                },
+                ".soc-item": {
+                  "margin": "0 .5rem"
+                },
+                "a": {
+                  "margin": "0",
+                  "opacity": ".5",
+                  "-webkit-transition": ".2s linear",
+                  "transition": ".2s linear",
+                  "&:hover": {
+                    "opacity": "1"
+                  }
+                },
+                "@media (max-width: 767px)": {
+                  "justify-content": "center",
+                  "-webkit-justify-content": "center"
+                }
+              }
+            }
+          },
+          "_cid": "qDSWWSyFzl",
+          "_protectedParams": [],
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#444444",
+            "overlay": true,
+            "overlayColor": "#444444",
+            "overlayOpacity": 0.8
+          },
+          "_anchor": "footer1-g"
+        }
+      ]
+    }
+  }
+}
