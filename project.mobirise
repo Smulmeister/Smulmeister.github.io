@@ -1,9 +1,9 @@
 {
   "settings": {
     "name": "Maurits Mulders",
-    "currentPage": "Main.html",
+    "currentPage": "MainNL.html",
     "versionFirst": "4.0.14",
-    "uniqCompNum": 40,
+    "uniqCompNum": 49,
     "versionPublish": "4.5.2",
     "theme": {
       "additionalSetColors": [
@@ -17,14 +17,15 @@
     "favicon": "",
     "noImageResize": "",
     "cookiesAlert": "",
-    "google-analytics": ""
+    "google-analytics": "",
+    "path": "@PROJECT_PATH@"
   },
   "pages": {
-    "Main.html": {
+    "MainNL.html": {
       "settings": {
         "main": true,
         "title": "Maurits Mulders",
-        "meta_descr": "Main Page",
+        "meta_descr": "Mijn CV Pagina.",
         "header_custom": "",
         "footer_custom": "",
         "html_before": ""
