@@ -407,6 +407,12 @@ undefined {
 }
 
 #features1-11 {
+P {
+  text-align: center;
+}
+.mbr-section-title .mbr-header__text {
+  text-align: right;
+}
 }
 
 #msg-box4-s {

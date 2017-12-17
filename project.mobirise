@@ -496,12 +496,12 @@
             "overlayOpacity": 0.5
           },
           "headerAlign": "left",
-          "header": "Mijn CV",
-          "subheader": "Maurits Mulders 25-12-2017",
+          "header": "W E L K O M&nbsp;",
+          "subheader": "Maurits Mulders 17-12-2017",
           "media1": {
             "image": {
               "active": true,
-              "src": "@PROJECT_PATH@/assets/images/mbr-2-1200x800.jpg",
+              "src": "@PROJECT_PATH@/assets/images/mbr-1-1623x1080.jpg",
               "class": "mbr-figure__img",
               "width": 600,
               "link": "",
@@ -518,8 +518,8 @@
               "size": 0
             }
           },
-          "title1": "Studie",
-          "caption1": "Vanaf 2012 in delft gestudeerd en mezelf verbreed&nbsp;<br>bla<br>bla&nbsp;<br>",
+          "title1": "STUDIE",
+          "caption1": "Vanaf 2012 op de TU in delft gestudeerd. Geleerd aan <i>werktuigbouwkunde </i>en daarna <i>MSc Cyber Security.</i><i><br></i><br>",
           "button1": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-s\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
           "media2": {
             "image": {
@@ -541,8 +541,8 @@
               "size": 0
             }
           },
-          "title2": "Bedrijfsleider",
-          "caption2": "Bedrijfsleider<br>bla&nbsp;<br>bla<br>bla<br>bla<br>",
+          "title2": "BEDRIJFSLEIDER",
+          "caption2": "In 2017 Bedrijfsleider geweest van zeilschool de Kikkert in Lemmer. Leiding gehad over het volledige bedrijf.&nbsp;<br><br>",
           "button2": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-t\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
           "media3": {
             "image": {
@@ -565,7 +565,7 @@
             }
           },
           "title3": "Zeilinstructeur",
-          "caption3": "Bla<br>Bla<br>Bla<br>BLa<br>BLa<br>",
+          "caption3": "Sinds 2011 zeilinstructeur op zeilschool de Kikkert in Lemmer. Les ervaring van ongeveer 25 weken full time.<br>",
           "button3": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-u\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
           "media4": {
             "image": {
@@ -588,7 +588,7 @@
             }
           },
           "title4": "Lyceo",
-          "caption4": "Bla<br>Bla<br>Bla<br>Bla<br>Bla<br>",
+          "caption4": "Sinds 2012 ben ik in dienst van Lyceo te Utrecht. Hierdoor sta ik regelmatig voor de klas om les te geven.&nbsp;<br><br>",
           "button4": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-12\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
           "media5": {
             "image": {
@@ -611,7 +611,7 @@
             }
           },
           "title5": "PERSOONLIJK",
-          "caption5": "Praktische informatie over mezelf.<br>bla<br>bla<br>bla<br>",
+          "caption5": "Op deze vind je persoonlijke informatie over mij, onder dit kopje wat algemene informatie.&nbsp;<br><br>",
           "button5": "<a data-app-btn=\"true\" href=\"Main.html#msg-box4-13\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">LEES MEER</a>",
           "media6": {
             "image": {
@@ -637,7 +637,15 @@
             "Theme"
           ],
           "_name": "features1",
-          "_anchor": "features1-11"
+          "_anchor": "features1-11",
+          "_styles": {
+            "P": {
+              "text-align": "center"
+            },
+            ".mbr-section-title .mbr-header__text": {
+              "text-align": "right"
+            }
+          }
         },
         {
           "_inherit": "msg-box5",
@@ -827,7 +835,7 @@
             }
           },
           "title": "ZEILINSTRUCTEUR - I4",
-          "text": "<p>Het lesgeven aan zowel kinderen als volwasennen in het Engels, Nederlands en Duits in verschillende typen boten. &nbsp;</p>",
+          "text": "<p>Gebruikmakend van verschillende didactische modellen lesgeven aan zowel kinderen als volwasennen. Dit in de talen Nederlands, Engels en Duits. Tevens het aansturen van en begeleiden van jongere instructeurs. &nbsp;</p>",
           "_tags": [
             "Theme"
           ],
@@ -843,7 +851,7 @@
             }
           },
           "headerAlign": "left",
-          "meta": "2011 tot heden&nbsp;",
+          "meta": "2011 - tot heden&nbsp;",
           "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-info\" href=\"Main.html#features1-11\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
           "_name": "msg-box4",
           "_anchor": "msg-box4-u"
@@ -877,7 +885,7 @@
               "active": true,
               "class": "mbr-figure__img",
               "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/mbr-1623x1080.jpg",
+              "src": "@PROJECT_PATH@/assets/images/mbr-1-1620x1080.jpg",
               "link": "",
               "alt": "",
               "title": ""
@@ -895,7 +903,7 @@
             }
           },
           "title": "LYCEO",
-          "text": "<p>Make your own website in a few clicks! Mobirise helps you cut down development time by providing you with a flexible website editor with a drag and drop interface.</p>",
+          "text": "Eindexamen training geven in wiskunde B en Natuurkunde aan kinderen van VWO6 en Havo 5. Tevens het geven van programmeer cursussen aan scholieren van alle leeftijden.&nbsp;",
           "_tags": [
             "Theme"
           ],
@@ -911,7 +919,7 @@
             }
           },
           "headerAlign": "left",
-          "meta": "2011&nbsp;",
+          "meta": "2011 - tot heden",
           "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"Main.html#features1-11\" data-toolbar=\"-mbrBtnMove\">TERUG NAAR BOVEN</a>",
           "_name": "msg-box4",
           "_anchor": "msg-box4-12"
@@ -962,7 +970,7 @@
               "size": 0
             }
           },
-          "title": "PERSOONLIJK",
+          "title": "PERSOONLIJK<br>",
           "text": "<p>Rijbewijs : JA</p><p>Geboren: 12-07-1994 te 's-Hertogenbosch</p><p>Talen: Nederlands, Engels, Duits</p><p>Adres: Zie onder</p>",
           "_tags": [
             "Theme"
