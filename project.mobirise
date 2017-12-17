@@ -17,7 +17,7 @@
     "favicon": "",
     "noImageResize": "",
     "cookiesAlert": "",
-    "google-analytics": "",
+    "google-analytics": "UA-111363865-1\r\n",
     "path": "@PROJECT_PATH@"
   },
   "pages": {
