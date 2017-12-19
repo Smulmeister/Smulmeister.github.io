@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>DataViz: Movie Meta Data Analyzer</title>
+		<link href="clapperboard.ico" rel="shortcut icon" type="image/x-icon" />		
+		<meta charset="utf-8">
+		<!-- CSS LAYOUT FILES -->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel=stylesheet href=main.css>
+		<link rel="stylesheet" href="RangeSlider.css">
+		<link rel="stylesheet" href="calendar-heatmap-mini.css">
+		<link rel="stylesheet" href="introjs.min.css">
+		
+		<!-- NEEDED SCRIPTS -->
+		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="rSlider.min.js"></script>
+		<script src="https://d3js.org/topojson.v1.min.js"></script>
+		<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+		<script src="accounting.min.js"></script>
+		<script src="calendar-heatmap-mini.js"></script>
+		<!-- <script src="https://d3js.org/d3-time.v1.min.js"></script> -->
+		<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	</head>
+	<body>
+		<!-- BOOTSTRAP -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+		<!-- START BOOTSTRAP LAYOUT -->		
+		<div class="container-fluid">
+		<div class="row">
+				<div class="col-12 col-md-3" id="input">
+					<div class="p-3 mb-2 bg-light text-dark">
+					<div data-step="1" data-intro="This data visualization application enables the user to explore and analyse meta data details of a large number of movies based on data collected from TMDB" data-position='bottom'><h1>The Movie Analyzer</h1></div>
+					<p> Select your input settings and start analyzing movies!</p><br>
+					
+					<!-- INPUT SECTION -->
+					<!-- SLIDERS -->
+					<div class="sliders" data-step="2" data-intro="Use these range sliders to filter the dataset based on runtime, year of release, revenue generated and the IMDB score. When no movies meet the selected filters, a warning is shown" data-position='bottom'>
+						<div class="slider-container">
+							<b>Runtime</b>
+							<input type="text" id="slider1" class="slider" />
+						</div>
+						<div class="slider-container">
+							<b>Year</b>
+							<input type="text" id="slider2" class="slider" />
+						</div>
+						<div class="slider-container">
+							<b>Revenue</b>
+							<input type="text" id="slider3" class="slider" />
+						</div>
+						<div class="slider-container">
+							<b>IMDB Score</b>
+							<input type="text" id="slider4" class="slider" />
+						</div>
+					</div>
+					
+					<!-- SELECTION  -->
+					<div id="container" data-step="3" data-intro="Using these drop down menus, the user can customize the scatterplot by defining which data must be displayed on the horizontal (x) axis, the vertical (y) axis and what the colour of the dots represents" data-position='bottom'>
+						<class = tablestyle><table id="selections">
+							<tr><th>Horizontal axis: </th>
+							<td><select id="xAxisItem" onchange="selectVariable(0)">
+								<option value="budget" selected="selected">Budget</option>
+								<option value="vote_count">Vote Count</option>
+								<option value="runtime">Runtime </option>
+								<option value="TMDB_popularity">Popularity </option>
+								<option value="revenue">Revenue</option>
+								<option value="vote_average">Vote average</option>
+								<option value="cast">Number of cast members</option>
+								<option value="crew">Number of crew members</option>				
+							</select></td></tr>
+							<tr><th>Vertical axis: </th>
+							<td><select id="yAxisItem" onchange="selectVariable(1)">
+								<option value="budget">Budget</option>
+								<option value="vote_count" selected="selected">Vote Count</option>
+								<option value="runtime">Runtime </option>
+								<option value="TMDB_popularity">Popularity </option>
+								<option value="revenue">Revenue</option>
+								<option value="vote_average">Vote average</option>
+								<option value="cast">Number of cast members</option>
+								<option value="crew">Number of crew members</option>
+							</select></td></tr>
+							<tr><th>Color of dots: </th>
+							<td><select id="colorItem" onchange="selectVariable(2)">
+								<option value="budget">Budget</option>
+								<option value="vote_count">Vote Count</option>
+								<option value="runtime">Runtime</option>
+								<option value="TMDB_popularity">Popularity</option>
+								<option value="revenue">Revenue</option>
+								<option value="vote_average" selected="selected">Vote average</option>
+								<option value="cast">Number of cast members</option>
+								<option value="crew">Number of crew members</option>
+							</select></td></tr>
+							</table>
+						</class>
+					</div>
+
+					<!-- UPDATE BUTTON -->
+					<div class="text-center" data-step="4" data-intro="Finished with filtering the data and customizing the scatterplot? Hit the update movie selection button to update all the visualizations! Or select all movies if you want to visualize the full dataset!" data-position='bottom'>
+						<br>
+						<button id="button" class="btn btn-default" href="javascript:void(0);" onclick="javascript:introJs().start();"><b>?</b></button>
+						<button id="button" class="btn btn-secondary" onclick="selectAllMovies()">Select all movies</button>
+						<button id="button" class="btn btn-primary" onclick="updateData()">Update movie selection</button>
+					</div>
+				</div>
+					<div class="worldmapcolor" data-step="5" data-intro="The worldmap shows the main production country of all movies in the selection. Just like the colouring in the scatterplot and heatmap, the darker the colour, the more movies are made in that country. Clicking on a country updates the current selection the that specific country." data-position='bottom'>
+						<div class="row">
+							<!-- WORLDMAP -->
+						<div id="map"></div>
+					</div>
+					</div>
+				</div>
+				<div class="col-6 col-md-6" id="scattercontainer">
+					<br>
+					<!-- SCATTERPLOT -->
+					<div id="scatterplot" data-step="6" data-intro="The scatterplot visualizes the current data selection based on the selected horizontal and vertical axis and on the colouring value. A tooltip regarding the current movie is displayed once the user hovers over a point and the right info bar updates once the user clicks on it." data-position='bottom'></div>
+					<br>
+					
+					<!-- HEATMAP -->
+					<div id="heatmap" data-step="7" data-intro="This heatmap displays the distribution of release dates of the current movie selected. All data is aggregated on day and month (not on year). Hovering over a date shows the number of movies released on that date, clicking on the date updates the current movie selection to movies released on that date." data-position='bottom'></div>
+				</div>
+				<div class="col-6 col-md-3" id ="info">
+					<br>
+					<!-- INFO SECTION -->
+					<div class="p-3 mb-2 bg-light text-dark">
+							<div id="movieInfos" data-step="8" data-intro="The info bar displays all the other information about the selected movie in a more textual way. The title is a clickable link to the IMDB page of the selected movie and a corresponding poster is shown. The profit of a movie is calculated and shown in red in case of a loss" data-position='bottom'>
+								<a id="movieTitleLink"><h3 id="movieTitle"></h3></a>
+								<div class="text-center">
+									<div id="poster"></div>
+									<a id="taglineLink"><i><small id="movieTagline"></small></i></a>
+								</div>
+								<a id="movieOverviewLink"><p id="movieOverview"></p></a><br>
+								<class = tablestyle><table id="movieInfosTable">
+									<tr><th>Director</th><td id="tableDirector"></td></tr>
+									<tr><th>Release date</th><td id="tableReleasedate"></td></tr>
+									<tr><th>Production company</th><td id="tableCompany"></td></tr>
+									<tr><th>Production country</th><td id="tableCountry"></td></tr>
+									<tr><th>Cast / Crew</th><td id="tableCastCrew"></td></tr>
+									<tr><th>Runtime</th><td id="tableRuntime"></td></tr>
+									<tr><th>Genres</th><td id="tableGenres"></td></tr>
+									<tr><th>Language</th><td id="tableLanguage"></td></tr>
+									<tr><th>Budget</th><td id="tableBudget"></td></tr>
+									<tr><th>Revenue</th><td id="tableRevenue"></td></tr>
+									<tr><th>Profit</th><td id="tableProfit"></td></tr>
+									<tr><th>TMDB Popularity</th><td id="tablePopularity"></td></tr>
+									<tr><th>IMDB score</th><td id="tableVote"></td></tr>
+									<tr><th>IMDB votes</th><td id="tableVotes"></td></tr>
+								</table></class>
+							</div> 
+						</div>
+				</div>
+			</div>
+		</div>
+		<!-- MAIN SCRIPT -->
+		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="intro.min.js"></script>
+
+	</body>
+</html>

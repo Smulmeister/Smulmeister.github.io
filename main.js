@@ -1,7 +1,7 @@
 // Setup scatterplot globals
-var viewWidth = document.getElementById('scattercontainer').offsetWidth - 35;
+var viewWidth = document.getElementById('scattercontainer').offsetWidth - 20;
 var viewHeight = document.getElementById('scattercontainer').offsetHeight;
-var margin = {top: 10, right: 40, bottom: 30, left: 40};
+var margin = {top: 10, right: 45, bottom: 30, left: 65};
 var width = viewWidth - margin.left - margin.right;
 var height = viewHeight - margin.top - margin.bottom;
 var x = d3.scaleLinear().range([0, width]);
@@ -440,20 +440,20 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
       .attr("class", "legend");
 
   legend.append("rect")
-      .attr("x", width - 18)
+      .attr("x", width)
       .attr("width", 18)
       .attr("height", 72)
       .style("fill", "url(#legendGradient)");
 
   legend.append("text")
-      .attr("x", width - 22)
+      .attr("x", width - 5)
       .attr("y", 6)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text("high");
 
   legend.append("text")
-      .attr("x", width - 22)
+      .attr("x", width - 5)
       .attr("y", 66)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
@@ -461,7 +461,7 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
 
   legend.append("text")
       .attr("id", "colorLabel")
-      .attr("x", width)
+      .attr("x", width + 15)
       .attr("y", 82)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
