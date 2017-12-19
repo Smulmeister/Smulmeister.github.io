@@ -1,7 +1,7 @@
 # Smulmeister.github.io
 GitHub Pages
 
-- CV
+CV
 smulmeister.github.io/MainNL.html
 
 Data viz project:
