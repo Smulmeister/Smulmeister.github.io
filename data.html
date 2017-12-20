@@ -2,33 +2,34 @@
 <html lang="en">
 
 	<head>
+		<!-- TITLE AND FAVICON -->
 		<title>DataViz: Movie Meta Data Analyzer</title>
 		<link href="clapperboard.ico" rel="shortcut icon" type="image/x-icon" />		
 		<meta charset="utf-8">
-		<!-- CSS LAYOUT FILES -->
 
+		<!-- CSS LAYOUT FILES -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<link rel=stylesheet href=main.css>
-		<link rel="stylesheet" href="RangeSlider.css">
-		<link rel="stylesheet" href="calendar-heatmap-mini.css">
-		<link rel="stylesheet" href="introjs.min.css">
+		<link rel="stylesheet" href=css/main.css>
+		<link rel="stylesheet" href="css/RangeSlider.css">
+		<link rel="stylesheet" href="css/calendar-heatmap-mini.css">
+		<link rel="stylesheet" href="css/introjs.min.css">
 		
 		<!-- NEEDED SCRIPTS -->
 		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="rSlider.min.js"></script>
-		<script src="https://d3js.org/topojson.v1.min.js"></script>
-		<script src="https://d3js.org/d3-collection.v1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
-		<script src="accounting.min.js"></script>
-		<script src="calendar-heatmap-mini.js"></script>
-		<!-- <script src="https://d3js.org/d3-time.v1.min.js"></script> -->
-		<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+		<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+		<script type="text/javascript" src="https://d3js.org/d3-collection.v1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+		<script type="text/javascript" src="https://d3js.org/d3-time-format.v2.min.js"></script>
+		<script type="text/javascript" src="js/rSlider.min.js"></script>
+		<script type="text/javascript" src="js/accounting.min.js"></script>
+		<script type="text/javascript" src="js/calendar-heatmap-mini.js"></script>
 
+		<!-- BOOTSTRAP SETTING -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	</head>
 	<body>
-		<!-- BOOTSTRAP -->
+		<!-- BOOTSTRAP SCRIPTS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -38,14 +39,14 @@
 		<div class="row">
 				<div class="col-12 col-md-3" id="input">
 					<div class="p-3 mb-2 bg-light text-dark">
+					<!-- INPUT SECTION -->
 					<div data-step="1" data-intro="This data visualization application enables the user to explore and analyse meta data details of a large number of movies based on data collected from TMDB" data-position='bottom'><h1>The Movie Analyzer</h1></div>
 					<p> Select your input settings and start analyzing movies!</p><br>
 					
-					<!-- INPUT SECTION -->
 					<!-- SLIDERS -->
 					<div class="sliders" data-step="2" data-intro="Use these range sliders to filter the dataset based on runtime, year of release, revenue generated and the IMDB score. When no movies meet the selected filters, a warning is shown" data-position='bottom'>
 						<div class="slider-container">
-							<b>Runtime</b>
+							<b>Runtime</b> <i>(min)</i>
 							<input type="text" id="slider1" class="slider" />
 						</div>
 						<div class="slider-container">
@@ -53,7 +54,7 @@
 							<input type="text" id="slider2" class="slider" />
 						</div>
 						<div class="slider-container">
-							<b>Revenue</b>
+							<b>Revenue</b> <i>(x $1000)</i>
 							<input type="text" id="slider3" class="slider" />
 						</div>
 						<div class="slider-container">
@@ -110,7 +111,7 @@
 						<button id="button" class="btn btn-primary" onclick="updateData()">Update movie selection</button>
 					</div>
 				</div>
-					<div class="worldmapcolor" data-step="5" data-intro="The worldmap shows the main production country of all movies in the selection. Just like the colouring in the scatterplot and heatmap, the darker the colour, the more movies are made in that country. Clicking on a country updates the current selection the that specific country." data-position='bottom'>
+					<div class="outputcolour" data-step="5" data-intro="The worldmap shows the main production country of all movies in the selection. Just like the colouring in the scatterplot and heatmap, the darker the colour, the more movies are made in that country. Clicking on a country updates the current selection the that specific country." data-position='bottom'>
 						<div class="row">
 							<!-- WORLDMAP -->
 						<div id="map"></div>
@@ -118,16 +119,18 @@
 					</div>
 				</div>
 				<div class="col-6 col-md-6" id="scattercontainer">
+					<div class="outputcolour">
+						<br>
+						<!-- SCATTERPLOT -->
+						<div id="scatterplot" data-step="6" data-intro="The scatterplot visualizes the current data selection based on the selected horizontal and vertical axis and on the colouring value. A tooltip regarding the current movie is displayed once the user hovers over a point and the right info bar updates once the user clicks on it." data-position='bottom'></div>
+					</div>
 					<br>
-					<!-- SCATTERPLOT -->
-					<div id="scatterplot" data-step="6" data-intro="The scatterplot visualizes the current data selection based on the selected horizontal and vertical axis and on the colouring value. A tooltip regarding the current movie is displayed once the user hovers over a point and the right info bar updates once the user clicks on it." data-position='bottom'></div>
-					<br>
-					
-					<!-- HEATMAP -->
-					<div id="heatmap" data-step="7" data-intro="This heatmap displays the distribution of release dates of the current movie selected. All data is aggregated on day and month (not on year). Hovering over a date shows the number of movies released on that date, clicking on the date updates the current movie selection to movies released on that date." data-position='bottom'></div>
+					<div class="outputcolour">	
+						<!-- HEATMAP -->
+						<div id="heatmap" data-step="7" data-intro="This heatmap displays the distribution of release dates of the current movie selected. All data is aggregated on day and month (not on year). Hovering over a date shows the number of movies released on that date, clicking on the date updates the current movie selection to movies released on that date." data-position='bottom'></div>
+					</div>
 				</div>
 				<div class="col-6 col-md-3" id ="info">
-					<br>
 					<!-- INFO SECTION -->
 					<div class="p-3 mb-2 bg-light text-dark">
 							<div id="movieInfos" data-step="8" data-intro="The info bar displays all the other information about the selected movie in a more textual way. The title is a clickable link to the IMDB page of the selected movie and a corresponding poster is shown. The profit of a movie is calculated and shown in red in case of a loss" data-position='bottom'>
@@ -158,9 +161,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- MAIN SCRIPT -->
+
+		<!-- MAIN SCRIPT AND INTRO.JS -->
+		<script type="text/javascript" src="js/intro.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
-		<script type="text/javascript" src="intro.min.js"></script>
 
 	</body>
 </html>

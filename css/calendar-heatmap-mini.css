@@ -1,0 +1,18 @@
+text.month-name,
+text.calendar-heatmap-legend-text,
+text.day-initial {
+  font-size: 10px;
+}
+
+text.day-cell-tooltip {
+  font-size: 10px;
+  font-weight: 600;
+  color: #222; 
+}
+rect.day-cell:hover {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+.calendar-heatmap {
+  box-sizing: initial;
+}

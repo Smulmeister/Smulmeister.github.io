@@ -1,5 +1,5 @@
 // Setup scatterplot globals
-var viewWidth = document.getElementById('scattercontainer').offsetWidth - 20;
+var viewWidth = document.getElementById('scattercontainer').offsetWidth - 28;
 var viewHeight = document.getElementById('scattercontainer').offsetHeight;
 var margin = {top: 10, right: 45, bottom: 30, left: 65};
 var width = viewWidth - margin.left - margin.right;
@@ -39,11 +39,11 @@ legendGradient.append( "stop" )
     .style( "stop-opacity", 1);
 
 // Setup the world map svg variables
-var mapWidth = document.getElementById('input').offsetWidth;
+var mapWidth = document.getElementById('input').offsetWidth - 20;
 var mapHeight = document.getElementById('input').offsetHeight - 320;
-var mapmargin = {top: 10, right: 10, bottom: 10, left: 40};
-var mwidth = mapWidth - margin.left - margin.right;
-var mheight = mapHeight - margin.top - margin.bottom;
+var mapmargin = {top: 10, right: 10, bottom: 10, left: 20};
+var mwidth = mapWidth - mapmargin.left - mapmargin.right;
+var mheight = mapHeight - mapmargin.top - mapmargin.bottom;
 
 // Attach svg to map div object
 var svgMap = d3.select("#map")
@@ -58,7 +58,7 @@ var svgMap = d3.select("#map")
 // Create the right projection of the map
 var projection = d3.geoMercator()
   .translate([mwidth / 2, mheight / 1.35])
-  .scale(72)
+  .scale(70)
 var path = d3.geoPath()
   .projection(projection)
 
@@ -90,8 +90,8 @@ var parseDate = d3.timeParse("%d-%m-%Y");
 
 // Load the needed files
 d3.queue()
-  .defer(d3.json, 'world-countries.json') // Map of the world
-  .defer(d3.json, "movies_json.json") // The movie dataset
+  .defer(d3.json, "data/world-countries.json") // Map of the world
+  .defer(d3.json, "data/movies_json.json") // The movie dataset
   .await(initialize)
 
 function initialize (error, world, data) {
@@ -100,7 +100,7 @@ function initialize (error, world, data) {
   // Set (and calculate) the right global variable values
   all_movies = data
   world_data = world
-  max_revenue = Math.max.apply(Math,all_movies.map(function(o){return o.revenue;}))
+  max_revenue = Math.round(Math.max.apply(Math,all_movies.map(function(o){return o.revenue;})) / 1000)
   max_duration = Math.max.apply(Math,all_movies.map(function(o){return o.runtime;}))
   min_year = Math.min.apply(Math,all_movies.map(function(o){return o.year;}))
   max_year = Math.max.apply(Math,all_movies.map(function(o){return o.year;}))
@@ -152,8 +152,8 @@ function updateData(){
   var score_vars = imdb_score_range.split(',')  
 
   // Create a new selection based on user input 
-  console.log("Create a new selection based on: " + duration_vars[0] + " - " + duration_vars[1], year_vars[0]  + " - " +  year_vars[1], revenue_vars[0]  + " - " +  revenue_vars[1])
-  selected_movies = filterData(all_movies, duration_vars[0], duration_vars[1], year_vars[0], year_vars[1], revenue_vars[0], revenue_vars[1], score_vars[0], score_vars[1])
+  console.log("Create a new selection based on: " + duration_vars[0] + " - " + duration_vars[1], year_vars[0]  + " - " +  year_vars[1], revenue_vars[0] * 1000  + " - " +  revenue_vars[1] * 1000, score_vars[0] + " - " + score_vars[1])
+  selected_movies = filterData(all_movies, duration_vars[0], duration_vars[1], year_vars[0], year_vars[1], revenue_vars[0] * 1000, revenue_vars[1] * 1000, score_vars[0], score_vars[1])
   
   // Check if selection is not empty
   if (selected_movies.length == 0) {
@@ -208,7 +208,7 @@ function createWorldMap(world, movies) {
     var country_color = d3.scalePow()
       .exponent(0.11)
       .domain([0, average, max_count])
-      .range(["#ffffff", "#7fcdbb", "#081d58"]);
+      .range(["#ffffd9", "#7fcdbb", "#081d58"]);
   
     // Make the map and add data with fill and text attributes
     svgMap.selectAll(".country")
@@ -272,7 +272,6 @@ function getAverage(counts) {
     return 1;
   } else {
     var average = Math.floor((total - max) / (rows - 1))
-    console.log(average)
     return average;
   }
 }
@@ -405,7 +404,7 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
 
   // Create a small intro transition
   var transition = d3.transition()
-    .duration(3000)
+    .duration(2500)
     .ease(d3.easeExp);
 
   // add the points to the scatterplot
@@ -440,20 +439,20 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
       .attr("class", "legend");
 
   legend.append("rect")
-      .attr("x", width)
+      .attr("x", width + 7)
       .attr("width", 18)
       .attr("height", 72)
       .style("fill", "url(#legendGradient)");
 
   legend.append("text")
-      .attr("x", width - 5)
+      .attr("x", width)
       .attr("y", 6)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text("high");
 
   legend.append("text")
-      .attr("x", width - 5)
+      .attr("x", width)
       .attr("y", 66)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
@@ -461,7 +460,7 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
 
   legend.append("text")
       .attr("id", "colorLabel")
-      .attr("x", width + 15)
+      .attr("x", width + 20)
       .attr("y", 82)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
@@ -588,16 +587,18 @@ var year_slider = new rSlider({
       }
     });
 
+//accounting.formatMoney(movie['budget'], "$", 0, "."));
+
 var revenue_slider = new rSlider({
     target: '#slider3',
     values: {min: 0, max: max_revenue},
-    step: 12000000,
+    step: 12000,
     range: true,
-    set: [708000000, max_revenue],
+    set: [708000, max_revenue],
     scale: true,
     labels: false,
     onChange: function (vals) {
-      revenue_range = vals;  
+      revenue_range = vals;
       }
     });
 
@@ -657,11 +658,13 @@ function drawHeatmap(movies){
         });
         selected_movies = clickedMovies
 
-        drawScatterplot(xValue,yValue,colorValue, selected_movies)
+        if (selected_movies.length > 0) {
+          drawScatterplot(xValue,yValue,colorValue, selected_movies)
 
-        createWorldMap(world_data, selected_movies)
+          createWorldMap(world_data, selected_movies)
 
-        displayInfo(selected_movies[0])
+          displayInfo(selected_movies[0])
+        }
     });
   heatmap();
 }
@@ -677,13 +680,15 @@ function countDates(rows) {
   rows.forEach(function(r){
     var date = r.release_date
     var split = date.split("/");
-      if(split[0] >= now[0]){
-        if(split[1] >= now[1]){
+      if (split[0] >= now[0]) {
+        if (split[1] >= now[1]) {
           tempDate = split[0]+ "-" + split[1]+ "-"+ (parseInt(now[2])-1).toString();
-        }else{
+        } 
+        else {
           tempDate = split[0]+ "-" + split[1]+ "-"+ now[2];
         }
-      }else{
+      } 
+      else {
         tempDate = split[0]+ "-" + split[1]+ "-" + now[2];
       }
     newDates.push(tempDate);  
