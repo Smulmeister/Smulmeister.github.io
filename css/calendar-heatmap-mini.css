@@ -11,8 +11,13 @@ text.day-cell-tooltip {
 }
 rect.day-cell:hover {
   stroke: #fff;
-  stroke-width: 1px;
+  stroke-width: 2px;
 }
 .calendar-heatmap {
   box-sizing: initial;
+}
+
+rect.day-cell {
+  stroke: #bdc3c7;
+  stroke-width: 1px;
 }

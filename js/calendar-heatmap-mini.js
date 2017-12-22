@@ -130,9 +130,13 @@ function calendarHeatmapMini() {
     max = d3.max(chart.data(), function (d) { return d.count; });
 
     // color range
-    var color = d3.scalePow()
-      .range(chart.colorRange())
-      .domain([0, max]);
+    // var color = d3.scalePow()
+    //   .range(chart.colorRange())
+    //   .domain([0, max]);
+
+    var color = d3.scaleLinear()
+      .domain([0, max])
+      .interpolate(function() { return d3.interpolateYlGnBu; });
 
     var dayRects;
 

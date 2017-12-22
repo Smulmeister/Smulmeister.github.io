@@ -22,6 +22,7 @@ label {
   height: auto;
   pointer-events: none;
   background-color: white;
+  opacity: 0.9; 
 }
 
 select {

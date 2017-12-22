@@ -16,10 +16,11 @@
 		
 		<!-- NEEDED SCRIPTS -->
 		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="https://d3js.org/topojson.v1.min.js"></script>
-		<script type="text/javascript" src="https://d3js.org/d3-collection.v1.min.js"></script>
+		<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+		<!-- <script type="text/javascript" src="https://d3js.org/d3-collection.v1.min.js"></script> -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 		<script type="text/javascript" src="https://d3js.org/d3-time-format.v2.min.js"></script>
+		<script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 		<script type="text/javascript" src="js/rSlider.min.js"></script>
 		<script type="text/javascript" src="js/accounting.min.js"></script>
 		<script type="text/javascript" src="js/calendar-heatmap-mini.js"></script>
@@ -69,7 +70,7 @@
 							<tr><th>Horizontal axis: </th>
 							<td><select id="xAxisItem" onchange="selectVariable(0)">
 								<option value="budget" selected="selected">Budget</option>
-								<option value="vote_count">Vote Count</option>
+								<option value="vote_count">Vote count</option>
 								<option value="runtime">Runtime </option>
 								<option value="TMDB_popularity">Popularity </option>
 								<option value="revenue">Revenue</option>
@@ -80,7 +81,7 @@
 							<tr><th>Vertical axis: </th>
 							<td><select id="yAxisItem" onchange="selectVariable(1)">
 								<option value="budget">Budget</option>
-								<option value="vote_count" selected="selected">Vote Count</option>
+								<option value="vote_count" selected="selected">Vote count</option>
 								<option value="runtime">Runtime </option>
 								<option value="TMDB_popularity">Popularity </option>
 								<option value="revenue">Revenue</option>
@@ -91,7 +92,7 @@
 							<tr><th>Color of dots: </th>
 							<td><select id="colorItem" onchange="selectVariable(2)">
 								<option value="budget">Budget</option>
-								<option value="vote_count">Vote Count</option>
+								<option value="vote_count">Vote count</option>
 								<option value="runtime">Runtime</option>
 								<option value="TMDB_popularity">Popularity</option>
 								<option value="revenue">Revenue</option>
@@ -109,6 +110,7 @@
 						<button id="button" class="btn btn-default" href="javascript:void(0);" onclick="javascript:introJs().start();"><b>?</b></button>
 						<button id="button" class="btn btn-secondary" onclick="selectAllMovies()">Select all movies</button>
 						<button id="button" class="btn btn-primary" onclick="updateData()">Update movie selection</button>
+						<i><small id="moviecount"></small></i>
 					</div>
 				</div>
 					<div class="outputcolour" data-step="5" data-intro="The worldmap shows the main production country of all movies in the selection. Just like the colouring in the scatterplot and heatmap, the darker the colour, the more movies are made in that country. Clicking on a country updates the current selection the that specific country." data-position='bottom'>
@@ -133,31 +135,31 @@
 				<div class="col-6 col-md-3" id ="info">
 					<!-- INFO SECTION -->
 					<div class="p-3 mb-2 bg-light text-dark">
-							<div id="movieInfos" data-step="8" data-intro="The info bar displays all the other information about the selected movie in a more textual way. The title is a clickable link to the IMDB page of the selected movie and a corresponding poster is shown. The profit of a movie is calculated and shown in red in case of a loss" data-position='bottom'>
-								<a id="movieTitleLink"><h3 id="movieTitle"></h3></a>
-								<div class="text-center">
-									<div id="poster"></div>
-									<a id="taglineLink"><i><small id="movieTagline"></small></i></a>
-								</div>
-								<a id="movieOverviewLink"><p id="movieOverview"></p></a><br>
-								<class = tablestyle><table id="movieInfosTable">
-									<tr><th>Director</th><td id="tableDirector"></td></tr>
-									<tr><th>Release date</th><td id="tableReleasedate"></td></tr>
-									<tr><th>Production company</th><td id="tableCompany"></td></tr>
-									<tr><th>Production country</th><td id="tableCountry"></td></tr>
-									<tr><th>Cast / Crew</th><td id="tableCastCrew"></td></tr>
-									<tr><th>Runtime</th><td id="tableRuntime"></td></tr>
-									<tr><th>Genres</th><td id="tableGenres"></td></tr>
-									<tr><th>Language</th><td id="tableLanguage"></td></tr>
-									<tr><th>Budget</th><td id="tableBudget"></td></tr>
-									<tr><th>Revenue</th><td id="tableRevenue"></td></tr>
-									<tr><th>Profit</th><td id="tableProfit"></td></tr>
-									<tr><th>TMDB Popularity</th><td id="tablePopularity"></td></tr>
-									<tr><th>IMDB score</th><td id="tableVote"></td></tr>
-									<tr><th>IMDB votes</th><td id="tableVotes"></td></tr>
-								</table></class>
-							</div> 
-						</div>
+						<div id="movieInfo" data-step="8" data-intro="The info bar displays all the other information about the selected movie in a more textual way. The title is a clickable link to the IMDB page of the selected movie and a corresponding poster is shown. The profit of a movie is calculated and shown in red in case of a loss" data-position='bottom'>
+							<h3 id="movieTitle"></h3></a>
+							<div class="text-center">
+								<div id="poster"></div>
+								<i><small id="movieTagline"></small></i>
+							</div>
+							<p id="movieOverview"></p></a><br>
+							<table>
+								<tr><th>Director</th><td id="tableDirector"></td></tr>
+								<tr><th>Release date</th><td id="tableReleasedate"></td></tr>
+								<tr><th>Production company</th><td id="tableCompany"></td></tr>
+								<tr><th>Production country</th><td id="tableCountry"></td></tr>
+								<tr><th>Cast / Crew</th><td id="tableCastCrew"></td></tr>
+								<tr><th>Runtime</th><td id="tableRuntime"></td></tr>
+								<tr><th>Genres</th><td id="tableGenres"></td></tr>
+								<tr><th>Language</th><td id="tableLanguage"></td></tr>
+								<tr><th>Budget</th><td id="tableBudget"></td></tr>
+								<tr><th>Revenue</th><td id="tableRevenue"></td></tr>
+								<tr><th>Profit</th><td id="tableProfit"></td></tr>
+								<tr><th>TMDB Popularity</th><td id="tablePopularity"></td></tr>
+								<tr><th>IMDB score</th><td id="tableVote"></td></tr>
+								<tr><th>IMDB votes</th><td id="tableVotes"></td></tr>
+							</table>
+						</div> 
+					</div>
 				</div>
 			</div>
 		</div>

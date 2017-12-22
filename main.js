@@ -6,10 +6,11 @@ var width = viewWidth - margin.left - margin.right;
 var height = viewHeight - margin.top - margin.bottom;
 var x = d3.scaleLinear().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
-var colors = ["#7fcdbb", "#081d58"];
-var color = d3.scaleLinear().range(colors);
 var xAxis = d3.axisBottom().scale(x);
 var yAxis = d3.axisLeft().scale(y);
+var colors = ["#ffffd9", "#41b6c4", "#081d58"];
+var color = d3.scaleLinear()
+  .interpolate(function() { return d3.interpolateYlGnBu; });
 
 // Attach scatterplot to div object
 var svgScatter = d3.select("#scatterplot")
@@ -34,6 +35,11 @@ legendGradient.append( "stop" )
     .style( "stop-opacity", 1);
 
 legendGradient.append( "stop" )
+    .attr( "id", "gradientMiddle" )
+    .attr( "offset", "50%" )
+    .style( "stop-opacity", 1);
+
+legendGradient.append( "stop" )
     .attr( "id", "gradientStop" )
     .attr( "offset", "100%" )
     .style( "stop-opacity", 1);
@@ -50,15 +56,15 @@ var svgMap = d3.select("#map")
 .append("svg")
   .attr("height", mapHeight)
   .attr("width", mapWidth)
-  .call(d3.zoom().scaleExtent([1,2])
+  .call(d3.zoom().scaleExtent([1,3])
   .on("zoom", zoomOnMap))
 .append("g")
   .attr("transform", "translate(" + mapmargin.left + "," + mapmargin.top + ")");
 
 // Create the right projection of the map
 var projection = d3.geoMercator()
-  .translate([mwidth / 2, mheight / 1.35])
-  .scale(70)
+  .translate([mwidth / 2, mheight / 1.50])
+  .scale(69)
 var path = d3.geoPath()
   .projection(projection)
 
@@ -116,7 +122,8 @@ function initialize (error, world, data) {
   
   // Create selection based on initial values
   selected_movies = filterData(all_movies, duration_vars[0], duration_vars[1], year_vars[0], year_vars[1], revenue_vars[0], revenue_vars[1], score_vars[0], score_vars[1])
-
+  d3.select('#moviecount').text("Movies in selection: " + selected_movies.length);
+  
   // Draw initial scatterplot, worldmap, heatmap and info section
   drawScatterplot(xValue, yValue, colorValue, selected_movies )
 
@@ -132,6 +139,8 @@ function initialize (error, world, data) {
 function selectAllMovies(){
   console.log("Select all data")
   selected_movies = all_movies
+
+  d3.select('#moviecount').text("Movies in selection: " + selected_movies.length);
 
   drawScatterplot(xValue, yValue, colorValue, selected_movies)
 
@@ -154,14 +163,13 @@ function updateData(){
   // Create a new selection based on user input 
   console.log("Create a new selection based on: " + duration_vars[0] + " - " + duration_vars[1], year_vars[0]  + " - " +  year_vars[1], revenue_vars[0] * 1000  + " - " +  revenue_vars[1] * 1000, score_vars[0] + " - " + score_vars[1])
   selected_movies = filterData(all_movies, duration_vars[0], duration_vars[1], year_vars[0], year_vars[1], revenue_vars[0] * 1000, revenue_vars[1] * 1000, score_vars[0], score_vars[1])
-  
+  d3.select('#moviecount').text("Movies in selection: " + selected_movies.length);
+
   // Check if selection is not empty
   if (selected_movies.length == 0) {
     alert("Data selection contains no movies! Please select different filter values");
   } 
   else {
-    console.log("New dataset has " + selected_movies.length + " data items")
-
     // Draw new scatterplot, worldmap and heatmap, and update info section
     drawScatterplot(xValue, yValue, colorValue,selected_movies)
 
@@ -205,6 +213,9 @@ function createWorldMap(world, movies) {
     // Set coloring of values 
     max_count = Math.max.apply(Math,Object.values(movies_countries).map(function(o){return o.count;}))
     average = getAverage(Object.values(movies_countries))
+
+    // Create a similar color scheme as the scatterplot and heatmap, but adjusted to the 
+    // huge differences in values of movies per country
     var country_color = d3.scalePow()
       .exponent(0.11)
       .domain([0, average, max_count])
@@ -236,11 +247,15 @@ function clickOnMap(d){
     selected_movies = old_selection
     selected_movies = selectCountry(d)
   }
-  drawScatterplot(xValue, yValue, colorValue, selected_movies)
+  if (selected_movies.length > 0) {
+    d3.select('#moviecount').text("Movies in selection: " + selected_movies.length);
 
-  drawHeatmap(selected_movies)
+    drawScatterplot(xValue, yValue, colorValue, selected_movies)
 
-  displayInfo(selected_movies[0])
+    drawHeatmap(selected_movies)
+
+    displayInfo(selected_movies[0])
+  }
 }
 
 // Function to zoom on the map
@@ -380,7 +395,7 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
   // Tooltip mouseover event handler
   var tipMouseover = function(d) {
     var html  = 
-        "<span style='color:" + color(d[v3]) + ";'><b>" + d.original_title + "</b></span><br/>" +
+        "<b>" + d.original_title + "</b></span><br/>" +
         "Year: <b>" + d.year + "</b> , Genre: <b/>" + d.genre_main + "</b> ";
         scattertooltip.html(html)
       .style("left", (d3.event.pageX - 500) + "px")
@@ -393,78 +408,80 @@ function drawScatterplot(v1, v2 ,v3, selectMovie) {
   // Tooltip mouseout event handler
   var tipMouseout = function(d) {
     scattertooltip.transition()
-          .duration(300)
-          .style("opacity", 0); 
+      .duration(300)
+      .style("opacity", 0); 
   };
 
   // Add the points to the scatterplot
   points = svgScatter.append("g")
-          .attr("class", "plotArea")
-          .data(selectMovie);
+    .attr("class", "plotArea")
+    .data(selectMovie);
 
   // Create a small intro transition
   var transition = d3.transition()
-    .duration(2500)
+    .duration(2000)
     .ease(d3.easeExp);
 
   // add the points to the scatterplot
   points.selectAll(".dot")
-      .data(selectMovie)
-      .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 4)
-      .transition(transition)
-      .attr("cx", function(d) {
-        return x(d[v1]); })
-      .attr("cy", function(d) { 
-        return y(d[v2]); })
-      .style("fill", function(d) { return color(d[v3]); })
+    .data(selectMovie)
+    .enter().append("circle")
+    .attr("class", "dot")
+    .attr("r", 4)
+    .transition(transition)
+    .attr("cx", function(d) {
+      return x(d[v1]); })
+    .attr("cy", function(d) { 
+      return y(d[v2]); })
+    .style("fill", function(d) { return color(d[v3]); })
     
   points.selectAll(".dot")
-      .data(selectMovie)  
-      .on("mouseover", tipMouseover)
-      .on("mouseout", tipMouseout)
-      .on("click", function(d){
-        displayInfo(d)
-      });
+    .data(selectMovie)  
+    .on("mouseover", tipMouseover)
+    .on("mouseout", tipMouseout)
+    .on("click", function(d){
+      displayInfo(d)
+    });
 
 
   // Gradient scale in top right
   svgScatter.select("#gradientStart")
     .style("stop-color", colors[0]);
-  svgScatter.select("#gradientStop")
+  svgScatter.select("#gradientMiddle")
     .style("stop-color", colors[1]);
+  svgScatter.select("#gradientStop")
+    .style("stop-color", colors[2]);
 
   var legend = svgScatter.append("g")
-      .attr("class", "legend");
+    .attr("class", "legend");
 
   legend.append("rect")
-      .attr("x", width + 7)
-      .attr("width", 18)
-      .attr("height", 72)
-      .style("fill", "url(#legendGradient)");
+    .attr("x", width + 7)
+    .attr("width", 18)
+    .attr("height", 72)
+    .style("fill", "url(#legendGradient)");
 
   legend.append("text")
-      .attr("x", width)
-      .attr("y", 6)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text("high");
+    .attr("x", width)
+    .attr("y", 6)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text("high");
 
   legend.append("text")
-      .attr("x", width)
-      .attr("y", 66)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text("low");
+    .attr("x", width)
+    .attr("y", 66)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text("low");
 
   legend.append("text")
-      .attr("id", "colorLabel")
-      .attr("x", width + 20)
-      .attr("y", 82)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(dataName(v3));
+    .attr("id", "colorLabel")
+    .attr("x", width + 20)
+    .attr("y", 82)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text(dataName(v3));
 }
 
 // Function to update the sidebar with selected movie information
@@ -571,7 +588,7 @@ function makeSliders() {
     labels: false,
     onChange: function (vals) {
       duration_range = vals }
-});              
+  });              
 
 var year_slider = new rSlider({
     target: '#slider2',
@@ -584,10 +601,8 @@ var year_slider = new rSlider({
     labels: false,
     onChange: function (vals) {
       year_range = vals;
-      }
-    });
-
-//accounting.formatMoney(movie['budget'], "$", 0, "."));
+    }
+  });
 
 var revenue_slider = new rSlider({
     target: '#slider3',
@@ -599,19 +614,19 @@ var revenue_slider = new rSlider({
     labels: false,
     onChange: function (vals) {
       revenue_range = vals;
-      }
-    });
+    }
+  });
 
 var score_slider = new rSlider({
-  target: '#slider4',
-  values: {min: 0, max: 10},
-  step: 0.5,
-  range: true,
-  set: [4, 9],
-  scale: true,
-  labels: false,
-  onChange: function (vals) {
-    imdb_score_range = vals;
+    target: '#slider4',
+    values: {min: 0, max: 10},
+    step: 0.5,
+    range: true,
+    set: [4, 9],
+    scale: true,
+    labels: false,
+    onChange: function (vals) {
+      imdb_score_range = vals;
     }
   });
 }
@@ -641,7 +656,6 @@ function drawHeatmap(movies){
   var heatmap = calendarHeatmapMini()
     .data(chartData)
     .selector('#heatmap')
-    .colorRange(['#7fcdbb', '#081d58'])
     .tooltipEnabled(true)
     .legendEnabled(true)
     .onClick(function (data) {
@@ -659,6 +673,8 @@ function drawHeatmap(movies){
         selected_movies = clickedMovies
 
         if (selected_movies.length > 0) {
+          d3.select('#moviecount').text("Movies in selection: " + selected_movies.length);
+
           drawScatterplot(xValue,yValue,colorValue, selected_movies)
 
           createWorldMap(world_data, selected_movies)
@@ -693,6 +709,7 @@ function countDates(rows) {
       }
     newDates.push(tempDate);  
   })
+  // Now count the year-less dates into <date, count> pairs
   newDates.forEach(function(r) {
 
       var key = parseDate(r);
