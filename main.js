@@ -696,17 +696,11 @@ function countDates(rows) {
   rows.forEach(function(r){
     var date = r.release_date
     var split = date.split("/");
-      if (split[0] > now[0]) {
+      if (split[0] >= now[0]) {
         if(split[1] >= now[1]){
           tempDate = split[0]+ "-" + split[1]+ "-"+ (parseInt(now[2])-1).toString();
         }else{
           tempDate = split[0]+ "-" + split[1]+ "-"+ now[2];
-      }elseif(split[0] == split[0]){
-          if(split[1] >= now[1]){
-            tempDate = split[0]+ "-" + split[1]+ "-"+ (parseInt(now[2])-1).toString();
-          }else{
-            tempDate = split[0]+ "-" + split[1]+ "-"+ now[2];
-          }
       }else{
         if(split[1] > now[1]){
           tempDate = split[0]+ "-" + split[1]+ "-"+ (parseInt(now[2])-1).toString();
