@@ -699,7 +699,7 @@ function countDates(rows) {
       if (split[0] >= now[0]) {
          tempDate = split[0]+ "-" + split[1]+ "-"+ (parseInt(now[2])-1).toString();
       }else {
-        if(split[1] >= now[1]){
+        if(split[1] > now[1]){
            tempDate = split[0]+ "-" + split[1]+ "-"+ (parseInt(now[2])-1).toString();
         }else{
        tempDate = split[0]+ "-" + split[1]+ "-"+ now[2];
