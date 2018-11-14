@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+	<head>
+
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111363865-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-111363865-2');
+		</script>
+
+		<meta charset="UTF-8">
+		<title> Maurits Mulders </title>
+		<meta name="description" content="Information page of Maurits M.">
+		<meta name="keywords" content="Cyber Security, Maurits, Mulders">
+<!-- 		<link rel="stylesheet" href="css/mainstyle.css">
+ -->
+
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+		<style>
+	body,html{
+		height: 101%;
+		margin: 0;
+		overflow-x: hidden;
+		  
+
+  }
+	.bg-image{
+			background-image: url(images/mainimage.jpg);
+			background-size: cover !important;
+			height: 100%;
+			width: 100%;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+
+			 /* Add the blur effect */
+
+
+
+	}
+		
+.main-nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #1d2729;
+  	position: fixed;
+  	top: 0;
+  	width: 100%;
+
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+
+		</style>
+	
+	</head>
+
+	<body>
+	
+		<nav class= "main-nav" id="navbar">
+		  <li><a href="Main.html">Home</a></li>
+		  <li><a href="https://github.com/Smulmeister">Github</a></li>
+		  <li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Websites</a>
+			<div class="dropdown-content">
+			  <a href="https://smulmeister.github.io/data.html">DataViz</a>
+
+			</div>
+		  </li>
+		</nav>
+	
+	<div class ="bg-image" >	</div>
+
+
+	<div class="bg-text">
+  		<h1 style="font-size:50px">Maurits Mulders</h1>
+	</div>
+
+
+
+
+
+
+<script>
+
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+(function ($) {
+  $(document).ready(function(){
+    
+	// hide .navbar first
+	$(".main-nav").hide();
+	
+	// fade in .navbar
+	$(function () {
+		$(window).scroll(function () {
+            // set distance user needs to scroll before we fadeIn navbar
+			if ($(this).scrollTop() > 0.1) {
+				$('.main-nav').fadeIn();
+			} 
+		});
+
+	
+	});
+
+});
+  }(jQuery));
+</script>
+	
+	</body>
+	
+</html>
